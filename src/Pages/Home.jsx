@@ -1,5 +1,6 @@
 import React from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
+import pizzaImage from "../assets/Images/pizza2.png";
 
 const Home = () => {
 	return (
@@ -29,6 +30,10 @@ const Home = () => {
 						</span>
 					</button>
 				</div>
+
+                <div>
+                    <img src={pizzaImage} alt="pizza" width={550} height={550} />
+                </div>
 			</section>
 		</div>
 	);
