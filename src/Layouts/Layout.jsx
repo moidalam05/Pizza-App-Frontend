@@ -16,17 +16,17 @@ const Layout = ({ children }) => {
 
 				<div className="hidden md:block">
 					<ul className="flex gap-4">
-						<li className="hover:text-[#FF9110]">
+						<li className="hover:text-[#FF9110] cursor-pointer">
 							{" "}
 							<p>Menu </p>
 						</li>
 
-						<li className="hover:text-[#FF9110]">
+						<li className="hover:text-[#FF9110] cursor-pointer">
 							{" "}
 							<p>Services </p>
 						</li>
 
-						<li className="hover:text-[#FF9110]">
+						<li className="hover:text-[#FF9110] cursor-pointer">
 							{" "}
 							<p>About </p>
 						</li>
