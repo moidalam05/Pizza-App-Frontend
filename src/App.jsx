@@ -1,14 +1,17 @@
 import React from "react";
 import Home from "./Pages/Home";
-import Layout from "./Layouts/Layout";
+import { Routes, Route } from "react-router-dom";
 
 const App = () => {
 	return (
-		<div>
-			<Layout>
-				<Home />
-			</Layout>
-		</div>
+		<>
+			<Routes>
+				<Route
+					path="/"
+					element={<Home />}
+				/>
+			</Routes>
+		</>
 	);
 };
 
