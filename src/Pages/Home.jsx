@@ -3,6 +3,9 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { BsPatchCheck } from "react-icons/bs";
 import pizzaImage from "../assets/Images/pizza2.png";
 import cookImage from "../assets/Images/cooking1.png";
+import orderFood from "../assets/Images/orderFood.png";
+import enjoyFood from "../assets/Images/enjoy.png";
+import pickupFood from "../assets/Images/pickup.png";
 
 const Home = () => {
 	return (
@@ -92,20 +95,65 @@ const Home = () => {
 								</span>
 							</div>
 						</div>
-						<div className="w-full p-1">
-							<div className="flex items-center h-full p-2 text-2xl rounded">
-								<BsPatchCheck className="text-[#F38339] w-10 h-10 mr-4" />
-								<span className="font-bold title-font">
-									Fresh Ingredients
-								</span>
+
+						<div className="px-5 py-4 mx-auto">
+							<div className="flex justify-center py-4">
+								<div className="inline-flex w-16 h-1 bg-yellow-500 rounded-full"></div>
 							</div>
-						</div>
-						<div className="w-full p-1">
-							<div className="flex items-center h-full p-2 text-2xl rounded">
-								<BsPatchCheck className="text-[#F38339] w-10 h-10 mr-4" />
-								<span className="font-bold title-font">
-									Guaranteed Satisfaction!
-								</span>
+
+							<div className="flex flex-wrap space-y-6 md:space-y-0 ">
+								<div className="flex flex-col items-center text-center p-4 md:w-1/3">
+									<div className="inline-flex items-center justify-center flex-shrink-0 w-20 h-20 mb-5 bg-yellow-100 rounded-full shadow-lg">
+										<img
+											src={orderFood}
+											alt="orderfood"
+										/>
+									</div>
+									<div className="flex-grow">
+										<h2 className="mb-3 text-lg font-bold text-gray-900 title-font">
+											Order Food
+										</h2>
+										<p className="text-base leading-relaxed">
+											As easy as 1, 2, 3. Choose your
+											favorite pizza add to cart and place
+											your order.
+										</p>
+									</div>
+								</div>
+								<div className="flex flex-col items-center text-center p-4 md:w-1/3">
+									<div className="inline-flex items-center justify-center flex-shrink-0 w-20 h-20 mb-5 bg-yellow-100 rounded-full shadow-lg">
+										<img
+											src={pickupFood}
+											alt="pickupfood"
+										/>
+									</div>
+									<div className="flex-grow">
+										<h2 className="mb-3 text-lg font-bold text-gray-900 title-font">
+											Pickup Food
+										</h2>
+										<p className="text-base leading-relaxed">
+											Order your favorite pizza and pick
+											it up from the nearest store.
+										</p>
+									</div>
+								</div>
+								<div className="flex flex-col items-center text-center p-4 md:w-1/3">
+									<div className="inline-flex items-center justify-center flex-shrink-0 w-20 h-20 mb-5 bg-yellow-100 rounded-full shadow-lg">
+										<img
+											src={enjoyFood}
+											alt="enjoyfood"
+										/>
+									</div>
+									<div className="flex-grow">
+										<h2 className="mb-3 text-lg font-bold text-gray-900 title-font">
+											Enjoy Food
+										</h2>
+										<p className="text-base leading-relaxed">
+											Enjoy your favorite pizza with a
+											free drink and have a great time.
+										</p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
