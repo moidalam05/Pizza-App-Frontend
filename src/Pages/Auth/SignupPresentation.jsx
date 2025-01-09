@@ -153,15 +153,15 @@ const SignupPresentation = ({ handleUserInput, handleFormSubmit }) => {
 						</h2>
 						<div className="relative mb-4">
 							<label
-								htmlFor="name"
+								htmlFor="firstName"
 								className="text-sm leading-7 text-gray-600"
 							>
 								First Name
 							</label>
 							<input
 								type="text"
-								id="name"
-								name="name"
+								id="firstName"
+								name="firstName"
 								required
 								onChange={handleUserInput}
 								placeholder="John Doe"

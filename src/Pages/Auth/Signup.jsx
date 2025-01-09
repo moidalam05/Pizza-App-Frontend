@@ -1,10 +1,15 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import SignupPresentation from "./SignupPresentation";
+import { useDispatch } from "react-redux";
+import { createAccount } from "../../Redux/Slices/AuthSlice";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const [signUpState, setSignUpState] = useState({
-		name: "",
+		firstName: "",
 		email: "",
 		mobileNumber: "",
 		password: "",
@@ -18,10 +23,10 @@ const Signup = () => {
 		});
 	}
 
-	function handleFormSubmit(e) {
+	async function handleFormSubmit(e) {
 		e.preventDefault();
 		if (
-			!signUpState.name ||
+			!signUpState.firstName ||
 			!signUpState.email ||
 			!signUpState.mobileNumber ||
 			!signUpState.password
@@ -44,9 +49,14 @@ const Signup = () => {
 			toast.error("Please enter a valid email address");
 			return;
 		}
-		if (!signUpState.name.length > 3) {
+		if (!signUpState.firstName.length > 3) {
 			toast.error("Please enter a valid name");
 			return;
+		}
+
+		const apiResponse = await dispatch(createAccount(signUpState));
+		if (apiResponse.payload.data.success) {
+			navigate("/auth/login");
 		}
 	}
 
