@@ -29,10 +29,42 @@ export const createAccount = createAsyncThunk(
 	}
 );
 
+export const login = createAsyncThunk("/auth/login", async (data) => {
+	console.log("incoming data to the thunk", data);
+	try {
+		const response = axiosInstance.post("/auth/login", data);
+		toast.promise(response, {
+			success: (resolvedPromise) => {
+				return resolvedPromise?.data?.message;
+			},
+			loading: "Hold on, creating your account...",
+			error: "Oh no! Something went wrong",
+		});
+		const apiResponse = await response;
+		return apiResponse;
+	} catch (error) {
+		console.log("error", error);
+	}
+});
+
 const AuthSlice = createSlice({
 	name: "auth",
 	initialState,
 	reducers: {},
+	extraReducers: (builder) => {
+		builder.addCase(login.fulfilled, (state, action) => {
+			state.isLoggedIn = true;
+			state.role = action?.payload?.data?.data?.userRole;
+			state.data = action?.payload?.data?.data?.userData;
+
+			localStorage.setItem("isLoggedIn", true);
+			localStorage.setItem("role", action?.payload?.data?.data?.userRole);
+			localStorage.setItem(
+				"data",
+				JSON.stringify(action?.payload?.data?.data?.userData)
+			);
+		});
+	},
 });
 
 export default AuthSlice.reducer;
