@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../Layouts/Layout";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { BsPatchCheck } from "react-icons/bs";
@@ -7,8 +7,16 @@ import cookImage from "../assets/Images/cooking1.png";
 import orderFood from "../assets/Images/orderFood.png";
 import enjoyFood from "../assets/Images/enjoy.png";
 import pickupFood from "../assets/Images/pickup.png";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllProducts } from "../Redux/Slices/ProductSlice";
 
 const Home = () => {
+	const dispatch = useDispatch();
+	const { productsData } = useSelector((state) => state.product);
+
+	useEffect(() => {
+		dispatch(getAllProducts());
+	}, []);
 	return (
 		<Layout>
 			<div>
