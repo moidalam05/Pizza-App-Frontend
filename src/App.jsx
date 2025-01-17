@@ -6,6 +6,8 @@ import Login from "./Pages/Auth/Login";
 import NotFound from "./Pages/NotFound";
 import Denied from "./Pages/Denied";
 import AddProduct from "./Pages/Admin/AddProduct";
+import ProductDetails from "./Pages/Products/ProductDetails";
+import CartDetails from "./Pages/Cart/CartDetails";
 
 const App = () => {
 	return (
@@ -30,6 +32,14 @@ const App = () => {
 				<Route
 					path="/admin/addProduct"
 					element={<AddProduct />}
+				/>
+				<Route
+					path="/product/:productId"
+					element={<ProductDetails />}
+				/>
+				<Route
+					path="/cart"
+					element={<CartDetails />}
 				/>
 				<Route
 					path="*"
