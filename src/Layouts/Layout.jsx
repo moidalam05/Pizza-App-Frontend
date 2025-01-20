@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Pizzalogo from "../assets/Images/pizza1.png";
 import Footer from "../Components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../Redux/Slices/AuthSlice";
 import CartIcon from "../assets/Images/cart.svg";
+import { getCartDetails } from "../Redux/Slices/CartSlice";
 
 const Layout = ({ children }) => {
 	const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -16,6 +17,19 @@ const Layout = ({ children }) => {
 		e.preventDefault();
 		dispatch(logout());
 	}
+
+	async function fetchCartDetails() {
+		const res = dispatch(getCartDetails());
+		if (res?.payload?.isUnAuthorized) {
+			dispatch(logout());
+		}
+	}
+
+	useEffect(() => {
+		if (isLoggedIn) {
+			fetchCartDetails();
+		}
+	}, []);
 	return (
 		<div>
 			<nav className="flex items-center justify-around h-16 text-[#6B7280] font-mono border-none shadow-md">
