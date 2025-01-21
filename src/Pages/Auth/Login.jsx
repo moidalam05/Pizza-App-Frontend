@@ -95,8 +95,6 @@ const Login = () => {
 			return;
 		}
 
-		setIsLoading(true); // Set loading to true before making API request
-
 		try {
 			const apiResponse = await dispatch(login(loginData));
 
@@ -111,8 +109,6 @@ const Login = () => {
 			}
 		} catch (error) {
 			toast.error("An error occurred. Please try again later.");
-		} finally {
-			setIsLoading(false); // Set loading to false after the API call
 		}
 	}
 
